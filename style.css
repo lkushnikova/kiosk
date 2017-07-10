@@ -1,0 +1,18 @@
+/*
+Theme Name: dkb-site
+Theme URI: http://wordpress.org
+Author: lkushnikova
+Author URI: lkushnikova
+Description: the theme for rzd dkb web-site
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, green, white, light, dark, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
+Text Domain: rzd
+
+*/
+/*@import url('bootstrap-3.2.0-dist/css/bootstrap.css'); */
+@import url('css/bootstrap.css'); 
+@import url('css/bootstrap-responsive.css');
+/*@import url('bootstrap/css/style_menu.css');
+@import url('bootstrap/css/common.css');
+*/
