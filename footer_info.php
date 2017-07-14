@@ -1,6 +1,6 @@
 ﻿
 <footer>
-	<button class="for_but for_but_footer" href="about.php"><i class="fa fa-caret-left " aria-hidden="true" style="margin-right:20px;"></i>НАЗАД</button>
+	<button class="for_but for_but_footer" onclick="history.back();"><i class="fa fa-caret-left " aria-hidden="true" style="margin-right:20px;"></i>НАЗАД</button>
 	<button class="for_but for_but_footer" href="about.php" style="float:right;"><i class="fa fa-home" aria-hidden="true" style="margin-right:20px;"></i>НА ГЛАВНУЮ</button>
 </footer>
 </div>

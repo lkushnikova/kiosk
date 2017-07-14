@@ -6217,6 +6217,7 @@ footer
   font-size: 5em;
   margin-bottom: 70px;
   color:#006fa8;
+  line-height: 1.3;
 }
 .top_head
 {
@@ -6227,7 +6228,7 @@ footer
   min-height:300px;
 }
 .top_head_info{
- min-height:400px; 
+ min-height:350px;
 }
 .mid_head h2{
   color:#006fa8;
@@ -6258,7 +6259,20 @@ footer
 
   
 }
-
+.short_description{
+  text-align: left;
+  /*margin-bottom:-2px;*/
+    width:60%;
+}
+.for_but_desc{
+   font-weight:bold;
+   font-size:0.6em;
+ }
+.for_but_cert{
+  font-weight:bold;
+  font-size:0.4em;
+    width:60%;
+}
 .address{clear:both; float:right; margin-right:155px; margin-top:-15px;}
 
 .left_button{float:left;}
@@ -6274,16 +6288,45 @@ footer
    color:#fff;
    color:#af000f !ie; 
    border-radius: 20px; 
-   padding:50px 100px; 
+   padding:70px 33px;
    text-align: center; 
-   font-size:46px; 
+   font-size:30px;
    font-family:Helvetica;
    box-shadow: inset 2px 2px 2px 1px rgba(255,255,255,0.75);
    margin-right:30px;
    line-height: 1.4;
 
- }
 
+ }
+.for_but_dep{
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom:110px;
+  cursor: pointer;
+}
+.work_schedule{
+  position:absolute;
+  background-color: #006fa8;
+  right:0px;
+  top:0px;
+  width:300px;
+  font-size:14px;
+  border-radius: 20px;
+  text-align:left;
+  box-sizing: border-box;
+  padding-left:10px;
+  padding-top:20px;
+  height:100%;
+  line-height: 1.3;
+    overflow-y:scroll;
+}
+.work_schedule p{
+  margin-bottom:0px;
+  margin-top:2px;
+}
+.for_but_dep a{
+  color:#fff;
+}
  .for_but_info{
   padding:20px 100px; 
   margin-bottom:20px;
@@ -6293,8 +6336,8 @@ footer
   
   margin-bottom:30px;
 }
-.for_but_menu a{
-  color:#fff;
+.for_but_menu a, for_but a{
+  color: #ffffff!important;
 }
 .for_but_footer{
   font-size:30px;
@@ -6449,7 +6492,7 @@ padding-top:20px;
   
 }
 .left_menu_about .for_but_menu{
-  font-size:36px;
+  font-size:30px;
   padding:30px;
 }
 .for_banners
@@ -6675,7 +6718,7 @@ a:hover{ color:#fff; text-decoration:none;}
 /* Класс текущего элемента списка: */
 
 .news_text a:hover{text-decoration: underline; color:#dd0f0f;}
-
+.person_description a:hover{color:#dd0f0f!important;}
 .link_news{ 
   /*float:right;*/
   padding-bottom:50px;

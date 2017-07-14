@@ -1,6 +1,7 @@
 <?php include('header_info.php');
 ini_set('error_reporting', E_ALL);
-$id = 1;
+$id = $_GET["id"];
+$id=intval($id);
 try {
     $host = 'localhost';
     $db   = 'kiosk';
@@ -16,15 +17,33 @@ try {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     $conn = new PDO($dsn, $user, $pass, $opt);
-    $stmt = $conn->prepare('SELECT * FROM department ');
+    $stmt = $conn->prepare('SELECT * FROM department WHERE dep_id=:id');
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
-
     $result = $stmt->fetchAll();
 
 
 ?>
   <div class="big_banner" style="background-color:transparent; box-shadow:none;">
-  <h1 class="for_h1_info">Отделения поликлиники</h1>
+    <?php if ($id=='2') {
+        echo '
+    <h1 class="for_h1_info">Отделение восстановительной медицины и реабилитации</h1>
+    
+    ';}
+    elseif($id=='3')
+    {
+        echo '
+    <h1 class="for_h1_info"> Стоматологическое отделение</h1>
+    
+    ';}
+    elseif($id=='4')
+    {
+        echo '
+    <h1 class="for_h1_info">Клинико-диагностическая лаборатория</h1>
+    
+    ';}
+    ?>
+
 <div class="left_menu_about">
 <div class="for_but for_but_menu"><a href="docs.php">Учредительные<br>ДОКУМЕНТЫ</a></div>
 <div class="for_but for_but_menu"><a href="license.php">Лицензия</a></div>
@@ -33,15 +52,15 @@ try {
 </div>
 <div class="center_content">
 	<?php
-    if ( count($result) ) {
+        if ( count($result) ) {
         foreach($result as $row) {
-if ($row["dep_id"]=='1') {
-    echo '<div class="for_but for_but_dep"><a href="terapevt.php?id=' . $row["dep_id"] . '">' . $row["dep_name"] . '</div>';
-}
-else {
-    echo '<div class="for_but for_but_dep"><a href="other_department.php?id=' . $row["dep_id"] . '">' . $row["dep_name"] . '</div>';
-}
-}
+
+
+            echo '
+             <p >'.$row['dep_description'].'</p>
+             ';
+
+        }
     } else {
         echo "Ничего не найдено.";
     }
