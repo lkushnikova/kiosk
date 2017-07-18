@@ -17,10 +17,14 @@ try {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     $conn = new PDO($dsn, $user, $pass, $opt);
-    $stmt = $conn->prepare('SELECT * FROM doctor WHERE dep_id=:id AND dct_id<>1');
+    $stmt = $conn->prepare('SELECT * FROM doctor WHERE dct_id=:id');
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $result = $stmt->fetchAll();
+
+    $num_rows = $conn->prepare('SELECT * FROM doctor');
+    $num_rows->execute();
+    $row1 = $num_rows->rowCount();
 
 
 ?>
@@ -34,29 +38,27 @@ try {
 </div>
 <div class="center_content">
 	<?php
-
+    echo count($result);
         if ( count($result) ) {
         foreach($result as $row) {
-if ($row['work_schedule_all']!==""){
-    $string=$row['work_schedule_all'];
-
-}
-if ($row['work_schedule_all']=="")
-{
-    $string='<p><b>Медосмотры:</b></p>'.$row['schedule_osmotr'].'<br><p><b>Прием пациентов:</b></p>'.$row['schedule_patient'];
-
-}
+            $next_doc=$id+1;
+            if ($next_doc>$row1)
+            {
+                $next_doc=1;
+            }
 
             echo '
-             <div class="for_but for_but_dep">
-             <a href="one_doctor.php?id=' . $row["dct_id"] . '">
-             <p class="short_description " style="margin-top:-50px;">'.$row['dct_lastname'].' '.$row['dct_firstname'].' '.$row['dct_midname'].'</p>
-             <p class="short_description for_but_desc">'.$row['dct_info'].'</p>
-             <p class="short_description for_but_cert">Сертификаты: '.$row['dct_cert'].'</p>
-             </a>
-             <div class="work_schedule">';
-             echo '<p style="font-size: 16px;padding-bottom:10px;"><strong>График работы:</strong></p>'.$string.$a.'</div>
-             </div>';
+             	 <section class="one_person">
+                 <h3>'.$row['dct_lastname'].' '.$row['dct_firstname'].' '.$row['dct_midname'].'</h3>
+                 <img src="img/noimage.gif" class="for_avatar">
+                 <div class="person_description">
+                 <p>'.$row['dct_info'].'</p>
+                <em>'.$row['dct_cert'].'</em>
+                 </div>
+                <a href="one_doctor.php?id=' .$next_doc. '"><i class=" fa fa-caret-right fa-4x right_button" aria-hidden="true" style="float:right;font-weight:bold;"></i></a>
+                  </section>
+                </div>
+                <p style="clear:both;"></p>';
 
 
         }
