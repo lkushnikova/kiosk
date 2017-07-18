@@ -41,7 +41,8 @@
 </div>
 
 <div class="right_head">
-<button class="for_but" href="about.php">ИНФОРМАЦИЯ<br> о поликлинике</button>
+    <div class="for_but"><a href="about.php">ИНФОРМАЦИЯ<br> о поликлинике</a></div>
+    <div class="for_but"><a href="all_schedule.php">РАСПИСАНИЕ<br> врачей</a></div>;
 
 </div>
 

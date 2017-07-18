@@ -36,7 +36,7 @@ try {
 <div class="for_but for_but_menu"><a href="admins.php">АДМИНИСТРАЦИЯ<br>поликлиники</a></div>
 
 </div>
-<div class="center_content">
+<section class="center_content">
 	<?php
     echo count($result);
         if ( count($result) ) {
@@ -46,7 +46,15 @@ try {
             {
                 $next_doc=1;
             }
+            if ($row['work_schedule_all']!==""){
+                $string=$row['work_schedule_all'];
 
+            }
+            if ($row['work_schedule_all']=="")
+            {
+                $string='<p><b>Медосмотры:</b></p>'.$row['schedule_osmotr'].'<br><p><b>Прием пациентов:</b></p>'.$row['schedule_patient'];
+
+            }
             echo '
              	 <section class="one_person">
                  <h3>'.$row['dct_lastname'].' '.$row['dct_firstname'].' '.$row['dct_midname'].'</h3>
@@ -56,9 +64,11 @@ try {
                 <em>'.$row['dct_cert'].'</em>
                  </div>
                 <a href="one_doctor.php?id=' .$next_doc. '"><i class=" fa fa-caret-right fa-4x right_button" aria-hidden="true" style="float:right;font-weight:bold;"></i></a>
-                  </section>
+                
                 </div>
-                <p style="clear:both;"></p>';
+                <p style="clear:both;"></p>
+                <div class="for_but">';
+             echo '<p style="font-size: 16px;padding-bottom:10px;"><strong>График работы:</strong></p>'.$string.$a.'</div>  </section>';
 
 
         }
@@ -69,7 +79,7 @@ try {
     echo 'ERROR: ' . $e->getMessage();
 }
     ?>
-</div>
+</section>
 <p style="clear:both;"></p>
 </div>
 

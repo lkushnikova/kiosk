@@ -1,7 +1,9 @@
 <?php include('header_info.php');
 ini_set('error_reporting', E_ALL);
 $id = $_GET["id"];
+$spc_id = $_GET["spc_id"];
 $id=intval($id);
+
 try {
     $host = 'localhost';
     $db   = 'kiosk';
@@ -17,8 +19,14 @@ try {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     $conn = new PDO($dsn, $user, $pass, $opt);
-    $stmt = $conn->prepare('SELECT * FROM doctor WHERE dep_id=:id AND dct_id<>1');
-    $stmt->bindParam(':id', $id);
+    if (isset($spc_id))
+    {$stmt = $conn->prepare('SELECT * FROM doctor WHERE special_id=:id AND dct_id<>1');
+     $stmt->bindParam(':id', $spc_id);
+    }
+    if (!isset($spc_id))
+    {$stmt = $conn->prepare('SELECT * FROM doctor WHERE dep_id=:id AND dct_id<>1');
+        $stmt->bindParam(':id', $id);}
+
     $stmt->execute();
     $result = $stmt->fetchAll();
 

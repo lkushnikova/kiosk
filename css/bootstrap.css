@@ -6298,6 +6298,12 @@ footer
 
 
  }
+.for_but a{
+    color:#fff;
+}
+.right_head .for_but{
+    padding:21px 33px;
+}
 .for_but_dep{
   margin-bottom: 30px;
   position: relative;
@@ -6703,12 +6709,13 @@ display:block;
 }
 
 .person_description{
-  font-size: 1.8em;
+  font-size: 1.6em;
   line-height: 1.4;
     width:80%;
 }
 .one_person h3{
   margin-bottom:30px;
+   color: #db253a;
 }
 .dwqa-container .dwqa-btn-success{
   background-color:#C41223;
