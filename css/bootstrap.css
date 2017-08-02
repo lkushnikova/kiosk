@@ -6301,6 +6301,25 @@ footer
 .for_but a{
     color:#fff;
 }
+.bottom_button{
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:10px 20px;
+    border-radius:10px;
+    color:#fff;
+    background-color: #006fa8;
+}
+.for_but_one_doctor{
+    float:right;
+    padding:10px;
+    font-size:1.1em;
+    margin-top:20px;
+}
+.for_but_one_doctor a:hover!important{
+    color:#fff;
+}
 .right_head .for_but{
     padding:21px 33px;
 }
@@ -6789,9 +6808,17 @@ a:hover{ color:red; text-decoration:none;}
   top: 93px;
 
 }
+.right_head a{
+    display: block;
+}
 
-
-
+.for_datetime{
+  width: 10%;
+  float:left;
+  font-size:1.1em;
+  font-weight:bold;
+  padding:20px;
+}
 
 
 

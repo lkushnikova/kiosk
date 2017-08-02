@@ -43,8 +43,8 @@
 </div>
 
 <div class="right_head">
-<button class="for_but for_but_info" href="http://dkb-sar.ru/?page_id=197">Записаться<br>на прием</button>
-<button class="for_but for_but_info" href="http://dkb-sar.ru/?page_id=197">Расписание<br>врачей</button>
+    <a href="appointment.php"><button class="for_but for_but_info">Записаться<br>на прием</button></a>
+    <a href="appointment.php"><button class="for_but for_but_info">Расписание<br>врачей</button></a>
 </div>
 
 

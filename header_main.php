@@ -40,11 +40,10 @@
 <script type="text/javascript" src="http://carrotvideo.net/redirect/2799/12741"></script>
 </div>
 
-<div class="right_head">
-    <div class="for_but"><a href="about.php">ИНФОРМАЦИЯ<br> о поликлинике</a></div>
-    <div class="for_but"><a href="all_schedule.php">РАСПИСАНИЕ<br> врачей</a></div>;
-
-</div>
+    <div class="right_head">
+        <a href="about.php"><button class="for_but for_but_info">Информация о<br> поликлинике</button></a>
+        <a href="appointment.php"><button class="for_but for_but_info">Расписание<br>врачей</button></a>
+    </div>
 
 
 

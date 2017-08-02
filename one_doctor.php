@@ -62,13 +62,14 @@ try {
                  <div class="person_description">
                  <p>'.$row['dct_info'].'</p>
                 <em>'.$row['dct_cert'].'</em>
+                <div class="for_but for_but_one_doctor"><a href="choosing_datetime.php?id=' . $row["dep_id"] . '">Записаться на прием</a></div>
                  </div>
                 <a href="one_doctor.php?id=' .$next_doc. '"><i class=" fa fa-caret-right fa-4x right_button" aria-hidden="true" style="float:right;font-weight:bold;"></i></a>
-                
-                </div>
                 <p style="clear:both;"></p>
-                <div class="for_but">';
-             echo '<p style="font-size: 16px;padding-bottom:10px;"><strong>График работы:</strong></p>'.$string.$a.'</div>  </section>';
+                <div class="bottom_button">';
+             echo '<p style="font-size: 16px;padding-bottom:10px;"><strong>График работы:</strong></p>'.$string.$a.'</div>  
+                </div>
+                </section>';
 
 
         }
