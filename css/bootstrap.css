@@ -6820,10 +6820,18 @@ a:hover{ color:red; text-decoration:none;}
   padding:20px;
 }
 
+.doctor_name{
+  color:#af000f;
+  margin-bottom:30px;
+}
+.white_news{
+  background-color:#fff;
+}
 
-
-
-
+.big_p{
+  font-size:1.7em;
+  font-weight:bold;
+}
 
 
 
