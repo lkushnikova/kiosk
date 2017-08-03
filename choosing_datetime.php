@@ -1,6 +1,7 @@
 <?php include('header_info.php');
 ini_set('error_reporting', E_ALL);
 $id = $_GET["id"];
+$date_for_time=$_GET['date_for_time'];
 try {
     $host = 'localhost';
     $db   = 'kiosk';
@@ -18,7 +19,7 @@ try {
     $conn = new PDO($dsn, $user, $pass, $opt);
     $set_local = $conn->prepare('SET lc_time_names="ru_RU"');
     $set_local->execute();
-    $stmt = $conn->prepare('SELECT schedule_id,dct_id, DATE_FORMAT(date,"%d.%m.%Y") AS date, DATE_FORMAT(date,"%W") AS weekday,time,special_id,status FROM schedule WHERE dct_id=:id GROUP BY date');
+    $stmt = $conn->prepare('SELECT schedule_id,dct_id, DATE_FORMAT(date,"%d.%m.%Y") AS date, date AS date1, DATE_FORMAT(date,"%W") AS weekday,time,special_id,status FROM schedule WHERE dct_id=:id GROUP BY date');
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $result = $stmt->fetchAll();
@@ -26,6 +27,8 @@ try {
     $doctor->bindParam(':id', $id);
     $doctor->execute();
     $doctor_result = $doctor->fetchAll();
+
+
 
 
 ?>
@@ -43,14 +46,35 @@ try {
     }
 
     if ( count($result) ) {
-        echo  '<p class="big_p">Выберите дату и время</p>';
+        echo  '<p class="big_p">Выберите дату</p>';
         foreach($result as $row) {
-
-            echo '<div class=" for_but for_datetime"><a href="#.php">'.$row['date'].'<br>'.$row['weekday'].'</a></div>';
-
+$formatted_date=$row['date1'];
+            echo '<div class=" for_but for_datetime"><a href="choosing_datetime.php?id='.$row['dct_id'].'&date_for_time='.$formatted_date.'">'.$row['date'].'<br>'.$row['weekday'].'</a></div>';
 }
     } else {
         echo "Ничего не найдено.";
+    }
+
+    echo '<hr style="width:100%;clear:both; margin-top:30px;background-color:#006fa8;">';
+    if(isset($date_for_time)){
+        $for_time = $conn->prepare('SELECT schedule_id,dct_id,DATE_FORMAT(date,"%d.%m.%Y") AS date,DATE_FORMAT(time, "%H:%i") AS time,special_id,status FROM schedule WHERE dct_id=:id AND date=:date_for_time ORDER BY time');
+        $for_time->bindParam(':id', $id);
+        $for_time->bindParam(':date_for_time', $date_for_time);
+        $for_time->execute();
+        $result_for_time = $for_time->fetchAll();
+
+        if ( count($result_for_time) ) {
+            echo  '<p class="big_p">Выберите время</p>';
+            foreach($result_for_time as $row_time) {
+
+                echo '<div class=" for_but for_datetime"><a href="#.php">'.$row_time['time'].'</a></div>';
+
+            }
+        } else {
+            echo "Ничего не найдено.";
+        }
+
+
     }
 } catch(PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();

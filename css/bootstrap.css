@@ -6813,11 +6813,12 @@ a:hover{ color:red; text-decoration:none;}
 }
 
 .for_datetime{
-  width: 10%;
+  width: 18%;
   float:left;
   font-size:1.1em;
   font-weight:bold;
   padding:20px;
+  margin-bottom:20px;
 }
 
 .doctor_name{
