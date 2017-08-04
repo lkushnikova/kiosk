@@ -901,7 +901,7 @@ dd {
 hr {
   margin: 20px 0;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 12px solid #006fa8;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -6833,7 +6833,12 @@ a:hover{ color:red; text-decoration:none;}
   font-size:1.7em;
   font-weight:bold;
 }
-
+hr {
+  border: none; /* Убираем границу для браузера Firefox */
+  color: red; /* Цвет линии для остальных браузеров */
+  background-color: red; /* Цвет линии для браузера Firefox и Opera */
+  height: 12px; /* Толщина линии */
+}
 
 
 

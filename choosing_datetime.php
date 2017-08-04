@@ -39,7 +39,7 @@ try {
     if ( count($doctor_result) ) {
         foreach($doctor_result as $doctor_row) {
             $doc=$doctor_row["dct_lastname"].' '.$doctor_row["dct_firstname"].' '.$doctor_row["dct_midname"];
-            echo '<h3 class="doctor_name" style="">'.$doc.'<strong>,'.$doctor_row["special_name"].'</strong></h3>';
+            echo '<a name="doc"><h3 class="doctor_name" style="">'.$doc.'<strong>,'.$doctor_row["special_name"].'</strong></h3></a>';
         }
     } else {
         echo "Ничего не найдено.";
@@ -49,8 +49,9 @@ try {
         echo  '<p class="big_p">Выберите дату</p>';
         foreach($result as $row) {
 $formatted_date=$row['date1'];
-            echo '<div class=" for_but for_datetime"><a href="choosing_datetime.php?id='.$row['dct_id'].'&date_for_time='.$formatted_date.'">'.$row['date'].'<br>'.$row['weekday'].'</a></div>';
-}
+            echo '<div class=" for_but for_datetime"><a href="choosing_datetime.php?id='.$row['dct_id'].'&date_for_time='.$formatted_date.'#doc">'.$row['date'].'<br>'.$row['weekday'].'</a></div>';
+
+        }
     } else {
         echo "Ничего не найдено.";
     }
@@ -65,10 +66,18 @@ $formatted_date=$row['date1'];
 
         if ( count($result_for_time) ) {
             echo  '<p class="big_p">Выберите время</p>';
-            foreach($result_for_time as $row_time) {
-
-                echo '<div class=" for_but for_datetime"><a href="#.php">'.$row_time['time'].'</a></div>';
-
+            ?>
+            <?php foreach($result_for_time as $row_time) {
+                $status=$row_time['status'];
+            if ($status=='1')
+            { echo '<div style="background:#006fa8!important;" class=" for_but for_datetime" ><a href="#.php">'.$row_time['time'].'</a></div>';
+            }
+                elseif ($status=='2')
+                { echo '<div class=" for_but for_datetime" style="background:darkgrey;"><a href="#.php">'.$row_time['time'].'</a></div>';
+                }
+                elseif ($status=='3')
+                { echo '<div class=" for_but for_datetime" ><a href="#.php">'.$row_time['time'].'</a></div>';
+                }
             }
         } else {
             echo "Ничего не найдено.";
@@ -80,8 +89,9 @@ $formatted_date=$row['date1'];
     echo 'ERROR: ' . $e->getMessage();
 }
     ?>
-</div>
 <p style="clear:both;"></p>
+</div>
+
 </div>
 
 
