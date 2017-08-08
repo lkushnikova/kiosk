@@ -70,7 +70,7 @@ $formatted_date=$row['date1'];
             <?php foreach($result_for_time as $row_time) {
                 $status=$row_time['status'];
             if ($status=='1')
-            { echo '<div style="background:#006fa8!important;" class=" for_but for_datetime" ><a href="#.php">'.$row_time['time'].'</a></div>';
+            { echo '<div style="background:#006fa8!important;" class=" for_but for_datetime" ><a href="confirm_appointment.php?dct_id='.$id.'&time='.$row_time['time'].'&date='.$formatted_date.'">'.$row_time['time'].'</a></div>';
             }
                 elseif ($status=='2')
                 { echo '<div class=" for_but for_datetime" style="background:darkgrey;"><a href="#.php">'.$row_time['time'].'</a></div>';
